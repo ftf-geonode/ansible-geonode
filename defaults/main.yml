@@ -94,6 +94,9 @@ nginx_robots_txt_disallow:
   - "/upload/"
   - "/uploaded/"
 
+# GeoNode Variables
+gn_version: "0.0.1"
+
 # Django Variables
 dj_superuser_user: admin
 dj_superuser_password: "admin"

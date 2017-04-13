@@ -61,12 +61,15 @@ OGC_SERVER = {
     }
 }
 
+CATALOGUE_DEFAULT_URL = SITEURL + ("" if SITEURL.endswith("/") else "/") + "catalogue/csw"
+
 CATALOGUE = {
     'default': {
         'ENGINE': 'geonode.catalogue.backends.pycsw_local',
-        'URL': '%scatalogue/csw' % SITEURL,
+        'URL': CATALOGUE_DEFAULT_URL,
     }
 }
+
 
 MEDIA_ROOT = "/var/www/{{ app_name }}/uploaded"
 STATIC_ROOT = "/var/www/{{ app_name }}/static"
@@ -77,6 +80,7 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
     'django.contrib.auth.hashers.BCryptPasswordHasher',
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher'
 ]
+
+VERSION = "{{ gn_version }}"
